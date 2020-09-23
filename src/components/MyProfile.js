@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './myProfile.less';
-
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 class MyProfile extends Component {
   
   state = {
@@ -31,26 +31,34 @@ class MyProfile extends Component {
       <div className="container">
         <h1>My Form</h1>
         <form className="my-form" onSubmit={this.handleFormSubmit}>
-          <div className="form-group">
-            <h3>Name</h3>
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={(e)=>this.handleFieldChange("name", e)}
-              className="form-control"
-              id="name"
-            />
-            <h3>Gender</h3>
-            <select value={this.state.gender} onChange={(e)=>this.handleFieldChange("gender", e)}>
-              <option value ="male">Male</option>
-              <option value ="female">Female</option>
-            </select>
-            <h3>Description</h3>
-            <textarea value={this.state.description} onChange={(e)=>this.handleFieldChange("description", e)}></textarea>
-            <p><input type="checkbox"
+        <div class="form-row"></div>
+          <div className="form-group col-md-4">
+          <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                value={this.state.name}
+                onChange={(e)=>this.handleFieldChange("name", e)}
+                className="form-control"
+                id="name"
+              />
+          </div>
+
+          <div className="form-group col-md-4">
+              <label htmlFor="gender">Gender</label>
+              <select value={this.state.gender} onChange={(e)=>this.handleFieldChange("gender", e)} id="gender" className="form-control">
+                <option value ="male">Male</option>
+                <option value ="female">Female</option>
+              </select>
+          </div>
+          <div className="form-group col-md-4">
+          <label htmlFor="description">Gender</label>
+            <textarea value={this.state.description} onChange={(e)=>this.handleFieldChange("description", e)} id='discription'  className="form-control"></textarea>
+          </div>
+          <div className="form-group col-md-4">
+          <p><input type="checkbox"
              name="category" 
              value="{this.state.check}" 
-             onChange={(e)=>this.handleCheckChange(e)}/>I have ready the terms of conduct </p>   
+             onChange={(e)=>this.handleCheckChange(e)}/>I have ready the terms of conduct </p>
           </div>
           <input type="submit" 
           value="Submit" 
